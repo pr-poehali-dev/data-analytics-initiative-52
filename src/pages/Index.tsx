@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import Icon from "@/components/ui/icon"
 import { MailIcon, PhoneIcon, MapPinIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef, useState } from "react"
@@ -132,6 +133,16 @@ export default function Index() {
       <LiquidMetalBackground />
       <div className="fixed inset-0 z-[5] bg-black/50" />
       <FloatingNavbar />
+
+      {/* Плавающая кнопка звонка */}
+      <a
+        href="tel:+79186008160"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full px-5 py-3 text-white font-open-sans-custom font-semibold shadow-2xl transition-transform hover:scale-105 active:scale-95"
+        style={{ background: "#FF6B35", boxShadow: "0 4px 24px rgba(255,107,53,0.5)" }}
+      >
+        <Icon name="Phone" size={20} />
+        <span className="hidden sm:inline">+7 (918) 600-81-60</span>
+      </a>
 
       <div
         ref={scrollContainerRef}
