@@ -13,8 +13,8 @@ import { MailIcon, PhoneIcon, MapPinIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef, useState } from "react"
 
-const DISPATCHER_PHONE = "+78620000000"
-const DISPATCHER_PHONE_DISPLAY = "+7 (862) 000-00-00"
+const DISPATCHER_PHONE = "+79186008160"
+const DISPATCHER_PHONE_DISPLAY = "+7 (918) 600-81-60"
 const SEND_URL = "https://functions.poehali.dev/5f1abdfb-46eb-4852-8824-25ea22887dac"
 
 export default function Index() {
