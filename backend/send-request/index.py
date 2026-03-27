@@ -31,6 +31,7 @@ def handler(event: dict, context) -> dict:
 
     smtp_email = os.environ.get("SMTP_EMAIL", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
+    recipient = os.environ.get("RECIPIENT_EMAIL", smtp_email)
 
     if not smtp_email or not smtp_password:
         return {
@@ -42,7 +43,7 @@ def handler(event: dict, context) -> dict:
     msg = MIMEMultipart("alternative")
     msg["Subject"] = f"Новая заявка на такси — {name}"
     msg["From"] = smtp_email
-    msg["To"] = smtp_email
+    msg["To"] = recipient
 
     html = f"""
     <div style="font-family: Inter, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0f172a; color: #e2e8f0; padding: 32px; border-radius: 12px;">
@@ -53,7 +54,7 @@ def handler(event: dict, context) -> dict:
         <tr><td style="padding: 8px 0; color: #94a3b8; width: 120px;">Имя</td><td style="padding: 8px 0; font-weight: 600; color: #f1f5f9;">{name}</td></tr>
         <tr><td style="padding: 8px 0; color: #94a3b8;">Телефон</td><td style="padding: 8px 0; font-weight: 600; color: #FF6B35; font-size: 18px;">{phone}</td></tr>
         {"<tr><td style='padding: 8px 0; color: #94a3b8;'>Email</td><td style='padding: 8px 0; color: #f1f5f9;'>" + email + "</td></tr>" if email else ""}
-        {"<tr><td style='padding: 8px 0; color: #94a3b8; vertical-align: top;'>Сообщение</td><td style='padding: 8px 0; color: #f1f5f9;'>" + message + "</td></tr>" if message else ""}
+        {"<tr><td style='padding: 8px 0; color: #94a3b8; vertical-align: top;'>Маршрут</td><td style='padding: 8px 0; color: #f1f5f9;'>" + message + "</td></tr>" if message else ""}
       </table>
       <div style="margin-top: 24px; padding: 12px; background: #1e293b; border-radius: 8px; font-size: 13px; color: #64748b;">
         Заявка отправлена с сайта rozataksi.ru
@@ -63,16 +64,26 @@ def handler(event: dict, context) -> dict:
 
     msg.attach(MIMEText(html, "html"))
 
-    smtp_host = "smtp.gmail.com"
-    smtp_port = 587
-    if "yandex" in smtp_email:
+    if "mail.ru" in smtp_email or "inbox.ru" in smtp_email or "bk.ru" in smtp_email or "list.ru" in smtp_email:
+        smtp_host = "smtp.mail.ru"
+        smtp_port = 465
+        with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
+            server.login(smtp_email, smtp_password)
+            server.sendmail(smtp_email, recipient, msg.as_string())
+    elif "yandex" in smtp_email:
         smtp_host = "smtp.yandex.ru"
         smtp_port = 587
-
-    with smtplib.SMTP(smtp_host, smtp_port) as server:
-        server.starttls()
-        server.login(smtp_email, smtp_password)
-        server.sendmail(smtp_email, smtp_email, msg.as_string())
+        with smtplib.SMTP(smtp_host, smtp_port) as server:
+            server.starttls()
+            server.login(smtp_email, smtp_password)
+            server.sendmail(smtp_email, recipient, msg.as_string())
+    else:
+        smtp_host = "smtp.gmail.com"
+        smtp_port = 587
+        with smtplib.SMTP(smtp_host, smtp_port) as server:
+            server.starttls()
+            server.login(smtp_email, smtp_password)
+            server.sendmail(smtp_email, recipient, msg.as_string())
 
     return {
         "statusCode": 200,
