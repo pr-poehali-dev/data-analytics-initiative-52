@@ -60,13 +60,15 @@ export function FloatingNavbar() {
           </div>
 
           {/* CTA Button */}
-          <Button
-            size="sm"
-            className="font-open-sans-custom text-white"
-            style={{ background: "#FF6B35" }}
-          >
-            Заказать такси
-          </Button>
+          <a href="tel:+79186008160">
+            <Button
+              size="sm"
+              className="font-open-sans-custom text-white"
+              style={{ background: "#FF6B35" }}
+            >
+              Заказать такси
+            </Button>
+          </a>
         </div>
       </div>
     </nav>
