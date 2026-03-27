@@ -91,7 +91,7 @@ export function BentoPricing() {
         </div>
         <div className="flex items-center gap-3 p-3">
           <Badge variant="secondary" className="bg-white/10 text-white border-white/20 font-open-sans-custom text-xs">
-            ПРЕМИУМ
+            КОМФОРТ
           </Badge>
           <Badge
             variant="outline"
@@ -100,24 +100,24 @@ export function BentoPricing() {
             <SparklesIcon className="me-1 size-3" /> Популярный
           </Badge>
           <div className="ml-auto">
-            <Button size="sm" className="bg-white text-black hover:bg-gray-100 font-open-sans-custom text-xs">
-              Подписаться
+            <Button size="sm" className="text-white font-open-sans-custom text-xs hover:opacity-90" style={{ background: "#FF6B35" }}>
+              Заказать
             </Button>
           </div>
         </div>
         <div className="flex flex-col p-3 lg:flex-row">
           <div className="pb-2 lg:w-[30%]">
             <span className="font-mono text-3xl font-semibold tracking-tight text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)]">
-              2 000 ₽
+              от 600 ₽
             </span>
-            <span className="text-gray-300 text-xs font-open-sans-custom">/мес</span>
+            <span className="text-gray-300 text-xs font-open-sans-custom">/поездка</span>
           </div>
           <ul className="text-gray-300 grid gap-2 text-xs lg:w-[70%] font-open-sans-custom">
             {[
-              "2 000 ₽ кредитов включено ежемесячно",
-              "Докупайте кредиты сверх месячного лимита",
-              "5x увеличенный лимит вложений",
-              "Импорт дизайнов из популярных инструментов",
+              "Sedan / Crossover — чистые ухоженные авто",
+              "Кондиционер, зарядка для телефона",
+              "Детское кресло по запросу",
+              "Провоз лыж и сноубордов",
             ].map((f, i) => (
               <li key={i} className="flex items-center gap-2">
                 <Check className="w-[1.05rem] h-[1.05rem] text-white flex-shrink-0" strokeWidth={3} />
@@ -129,47 +129,48 @@ export function BentoPricing() {
       </div>
 
       <PricingCard
-        titleBadge="СТАРТ"
-        priceLabel="0 ₽"
+        titleBadge="ЭКОНОМ"
+        priceLabel="от 350 ₽"
+        priceSuffix="/поездка"
         features={[
-          "500 ₽ кредитов включено ежемесячно",
-          "Деплой приложений в облако",
-          "Визуальное редактирование",
-          "Синхронизация с Git",
+          "Бюджетные авто эконом-класса",
+          "Быстрая подача — от 5 минут",
+          "Онлайн-оплата картой",
+          "История поездок и чеки",
         ]}
         className="lg:col-span-3"
-        cta="Начать"
+        cta="Заказать"
       />
 
       <PricingCard
-        titleBadge="КОМАНДА"
-        priceLabel="3 000 ₽"
-        priceSuffix="/чел/мес"
+        titleBadge="МИНИВЭН"
+        priceLabel="от 1 200 ₽"
+        priceSuffix="/поездка"
         features={[
-          "3 000 ₽ кредитов на участника ежемесячно",
-          "Единый биллинг и управление командой",
-          "Общие чаты и совместная работа",
+          "До 7 пассажиров + багаж",
+          "Идеально для групп с горнолыжным снаряжением",
+          "Трансфер аэропорт Сочи ↔ Роза Хутор",
         ]}
         className="lg:col-span-4"
       />
 
       <PricingCard
-        titleBadge="БИЗНЕС"
-        priceLabel="10 000 ₽"
-        priceSuffix="/чел/мес"
-        features={["3 000 ₽ кредитов на участника ежемесячно", "Отключение обучения по умолчанию", "Полный доступ к API"]}
+        titleBadge="ТРАНСФЕР"
+        priceLabel="от 2 500 ₽"
+        priceSuffix="/рейс"
+        features={["Аэропорт Сочи — Роза Хутор", "Встреча с табличкой, помощь с багажом", "Фиксированная цена без счётчика"]}
         className="lg:col-span-4"
       />
 
       <PricingCard
-        titleBadge="КОРПОРАЦИЯ"
-        priceLabel="По запросу"
+        titleBadge="КОРПОРАТИВНЫЙ"
+        priceLabel="По договору"
         priceSuffix=""
         features={[
-          "Отключение обучения по умолчанию",
-          "SAML SSO",
-          "Приоритетный доступ",
-          "Персональная поддержка",
+          "Обслуживание отелей и санаториев",
+          "Единый счёт для компании",
+          "Персональный менеджер",
+          "Приоритетная подача 24/7",
         ]}
         className="lg:col-span-8"
         cta="Связаться"

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -45,9 +45,11 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --font-open-sans: "Open Sans", sans-serif;
+    --font-open-sans: "Inter", sans-serif;
     --font-rubik: "Rubik", sans-serif;
     --font-lora: "Lora", serif;
+    --color-brand: #2a5ba3;
+    --color-accent: #ff6b35;
   }
 
   .dark {
@@ -99,7 +101,7 @@
   }
 
   .font-open-sans-custom {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-variation-settings: "wdth" 100;

@@ -16,17 +16,18 @@ export function FloatingNavbar() {
           <button onClick={() => scrollToSection("home")} className="cursor-pointer">
             <div className="flex items-center gap-2 text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_40%)]">
               <svg
-                fill="currentColor"
+                fill="none"
                 height="1.75em"
                 style={{ flexShrink: 0, lineHeight: 1 }}
                 viewBox="0 0 24 24"
                 width="1.75em"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <title>PromptCraft</title>
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                <title>Роза Хутор Такси</title>
+                <path d="M12 2C8 2 5 5.5 5 9c0 5 7 13 7 13s7-8 7-13c0-3.5-3-7-7-7z" stroke="currentColor" strokeWidth="1.5" fill="rgba(255,107,53,0.3)" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" fill="rgba(42,91,163,0.4)"/>
               </svg>
-              <span className="font-semibold text-lg font-open-sans-custom tracking-tight">PromptCraft</span>
+              <span className="font-semibold text-lg font-open-sans-custom tracking-tight">Роза Такси</span>
             </div>
           </button>
 
@@ -36,7 +37,7 @@ export function FloatingNavbar() {
               onClick={() => scrollToSection("features")}
               className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
             >
-              Функции
+              Возможности
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
@@ -48,7 +49,7 @@ export function FloatingNavbar() {
               onClick={() => scrollToSection("about")}
               className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
             >
-              О нас
+              О сервисе
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -61,9 +62,10 @@ export function FloatingNavbar() {
           {/* CTA Button */}
           <Button
             size="sm"
-            className="bg-white text-black hover:bg-gray-100 [text-shadow:_0_1px_2px_rgb(0_0_0_/_10%)] font-open-sans-custom"
+            className="font-open-sans-custom text-white"
+            style={{ background: "#FF6B35" }}
           >
-            Начать
+            Заказать такси
           </Button>
         </div>
       </div>
