@@ -269,7 +269,7 @@ export default function Index() {
               title="Заказать трансфер"
               description="Хотите забронировать поездку заранее или нужна помощь? Оставьте заявку — перезвоним в течение 10 минут и подберём машину под ваш маршрут."
               contactInfo={[
-                { icon: MailIcon, label: "Почта", value: "taxi@roza-hutor.ru" },
+                { icon: MailIcon, label: "Почта", value: "rustam-shakirov-88@mail.ru" },
                 { icon: PhoneIcon, label: "Диспетчер 24/7", value: DISPATCHER_PHONE_DISPLAY },
                 { icon: MapPinIcon, label: "Курорт", value: "Роза Хутор, Сочи", className: "col-span-2" },
               ]}
