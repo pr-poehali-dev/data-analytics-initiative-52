@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Link } from "react-router-dom"
 
 export function FloatingNavbar() {
   const scrollToSection = (sectionId: string) => {
@@ -59,16 +60,24 @@ export function FloatingNavbar() {
             </button>
           </div>
 
-          {/* CTA Button */}
-          <a href="tel:+79186008160">
-            <Button
-              size="sm"
-              className="font-open-sans-custom text-white"
-              style={{ background: "#FF6B35" }}
+          {/* CTA Buttons */}
+          <div className="flex items-center gap-3">
+            <Link
+              to="/driver-register"
+              className="hidden md:block text-sm font-open-sans-custom text-gray-300 hover:text-white transition-colors [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
             >
-              Заказать такси
-            </Button>
-          </a>
+              Стать водителем
+            </Link>
+            <a href="tel:+79186008160">
+              <Button
+                size="sm"
+                className="font-open-sans-custom text-white"
+                style={{ background: "#FF6B35" }}
+              >
+                Заказать такси
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
